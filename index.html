@@ -1,30 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Breaking News #1 | DailyPulse</title>
-  <meta name="description" content="DailyPulse breaking news article.">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UG16volt - Trending News & Entertainment</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header style="background:#0f172a;color:#fff;padding:20px;text-align:center;font-size:1.8rem;font-weight:700;">
-    DailyPulse
-  </header>
+    <!-- Enhanced Header with Glass Effect -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <h1>UG16volt</h1>
+                <span class="tagline">Trending News & Entertainment</span>
+            </div>
+            <nav class="nav">
+                <a href="#latest" class="nav-link active">Home</a>
+                <a href="#sports" class="nav-link">Sports</a>
+                <a href="#entertainment" class="nav-link">Entertainment</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+        </div>
+    </header>
 
-  <nav style="background:#111827;display:flex;justify-content:center;padding:10px;">
-    <a href="../index.html" style="color:#e5e7eb;margin:0 10px;text-decoration:none;">Home</a>
-    <a href="../index.html#news" style="color:#e5e7eb;margin:0 10px;text-decoration:none;">News</a>
-    <a href="../index.html#sports" style="color:#e5e7eb;margin:0 10px;text-decoration:none;">Sports</a>
-  </nav>
+    <!-- Hero Section with Pro Slider -->
+    <section id="hero" class="hero">
+        <div class="hero-overlay">
+            <h2 class="hero-title">Top Trending Stories</h2>
+            <div class="slider-container">
+                <div class="slider">
+                    <div class="slide active">
+                        <img src="https://via.placeholder.com/1200x600/1e3a8a/ffffff?text=Breaking+News+1" alt="Trending 1">
+                        <div class="slide-content">
+                            <p class="slide-title">Trending Story 1 - Breaking News Headline</p>
+                            <span class="slide-time">2 hours ago</span>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <img src="https://via.placeholder.com/1200x600/ff6b6b/ffffff?text=Trending+Story+2" alt="Trending 2">
+                        <div class="slide-content">
+                            <p class="slide-title">Trending Story 2 - Major Entertainment Scoop</p>
+                            <span class="slide-time">4 hours ago</span>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <img src="https://via.placeholder.com/1200x600/10b981/ffffff?text=Sports+Update+3" alt="Trending 3">
+                        <div class="slide-content">
+                            <p class="slide-title">Trending Story 3 - Sports World Shocker</p>
+                            <span class="slide-time">6 hours ago</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="slider-dots">
+                    <span class="dot active" data-slide="0"></span>
+                    <span class="dot" data-slide="1"></span>
+                    <span class="dot" data-slide="2"></span>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <main style="max-width:900px;margin:auto;padding:30px;">
-    <h1>Breaking News Headline</h1>
-    <p><strong>Date:</strong> 28 Dec 2025</p>
-    <p>This is the full news article content. You can write paragraphs, add images, embed videos, etc. Each new article will have its own HTML file in the posts folder.</p>
-  </main>
+    <!-- Main Content & Enhanced Sidebar -->
+    <div class="main-container">
+        <main class="content">
+            <!-- Latest Articles -->
+            <section id="latest" class="section">
+                <h3 class="section-title">Latest Articles</h3>
+                <div class="articles-grid" id="latest-articles">
+                    <!-- Dynamic content populated by JS -->
+                </div>
+            </section>
+            <div class="ad-space">Ad Space - Google AdSense</div>
 
-  <footer style="background:#0f172a;color:#cbd5e1;text-align:center;padding:20px;">
-    © 2025 DailyPulse · All rights reserved
-  </footer>
+            <!-- Sports Section -->
+            <section id="sports" class="section">
+                <h3 class="section-title">Sports</h3>
+                <div class="articles-grid" id="sports-articles">
+                    <!-- Dynamic content populated by JS -->
+                </div>
+            </section>
+            <div class="ad-space">Ad Space - Google AdSense</div>
+
+            <!-- Entertainment Section -->
+            <section id="entertainment" class="section">
+                <h3 class="section-title">Entertainment</h3>
+                <div class="articles-grid" id="entertainment-articles">
+                    <!-- Dynamic content populated by JS -->
+                </div>
+            </section>
+            <div class="ad-space">Ad Space - Google AdSense</div>
+
+            <!-- Contact Section -->
+            <section id="contact" class="section">
+                <h3 class="section-title">Contact Us</h3>
+                <div class="contact-info">
+                    <p><strong>Email:</strong> info@ug16volt.com</p>
+                    <p><strong>Follow us:</strong> Twitter | Instagram | YouTube</p>
+                </div>
+            </section>
+        </main>
+
+        <!-- Premium Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-section">
+                <h4>Popular Posts</h4>
+                <ul class="popular-list">
+                    <li><a href="#">Popular Article 1<span>· 12k views</span></a></li>
+                    <li><a href="#">Popular Article 2<span>· 8.5k views</span></a></li>
+                    <li><a href="#">Popular Article 3<span>· 6.2k views</span></a></li>
+                </ul>
+            </div>
+            <div class="sidebar-trending">
+                <h4>Trending Now</h4>
+                <div class="trending-item">
+                    <span class="trend-rank">#1</span>
+                    <span>Entertainment Buzz</span>
+                </div>
+                <div class="trending-item">
+                    <span class="trend-rank">#2</span>
+                    <span>Sports Drama</span>
+                </div>
+            </div>
+            <div class="ad-space sidebar-ad">Ad Space</div>
+        </aside>
+    </div>
+
+    <!-- Premium Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 UG16volt. All rights reserved. | Privacy Policy | Terms of Service</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
