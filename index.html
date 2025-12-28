@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DailyPulse</title>
+  <title>DailyPulse - Breaking News & Sports</title>
   <meta name="description" content="DailyPulse delivers fast, reliable news and sports highlights with a modern, mobile-friendly experience.">
 
   <style>
@@ -128,34 +128,48 @@
       100% { transform: translateX(-100%); }
     }
 
-    /* ===== Hero ===== */
-    .hero {
-      background: linear-gradient(
-        rgba(15, 23, 42, 0.75),
-        rgba(15, 23, 42, 0.75)
-      ),
-      url('https://images.unsplash.com/photo-1508796079212-d5a1bbad6e6b?auto=format&fit=crop&w=1400&q=80')
-      no-repeat center / cover;
-      color: #ffffff;
+    /* ===== HOME PAGE ===== */
+    #home {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .featured-image {
+      background: linear-gradient(rgba(15,23,42,0.8), rgba(15,23,42,0.8)), 
+                  url('https://images.unsplash.com/photo-1508796079212-d5a1bbad6e6b?auto=format&fit=crop&w=1400&q=80') no-repeat center/cover;
+      height: 400px;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       text-align: center;
-      padding: 90px 20px;
+      color: white;
+      margin-bottom: 50px;
     }
 
-    .hero h1 { font-size: 2.8rem; margin-bottom: 10px; }
-    .hero p { font-size: 1.15rem; color: #e5e7eb; margin-bottom: 25px; }
+    .featured-image h1 {
+      font-size: 3rem;
+      margin: 0;
+      font-weight: 800;
+    }
 
-    .hero .button {
-      background-color: #2563eb;
-      padding: 14px 30px;
-      border-radius: 10px;
-      color: #ffffff;
+    .featured-image p {
+      font-size: 1.3rem;
+      margin: 15px 0 25px 0;
+    }
+
+    .homepage-button {
+      background: #2563eb;
+      padding: 15px 35px;
+      border-radius: 30px;
+      font-size: 1.1rem;
       font-weight: 700;
-      transition: background-color 0.3s, transform 0.3s;
-      display: inline-block;
+      transition: all 0.3s;
     }
 
-    .hero .button:hover {
-      background-color: #1d4ed8;
+    .homepage-button:hover {
+      background: #1d4ed8;
       transform: scale(1.05);
     }
 
@@ -221,6 +235,7 @@
       padding: 6px 10px;
       border-radius: 50%;
       transition: background 0.3s;
+      display: inline-block;
     }
 
     .social-share a:hover {
@@ -250,7 +265,8 @@
 
     /* ===== Responsive ===== */
     @media (max-width: 600px) {
-      .hero h1 { font-size: 2rem; }
+      .featured-image h1 { font-size: 2rem; }
+      .featured-image p { font-size: 1.1rem; }
       nav a { padding: 12px 15px; }
       #darkMode { top: 10px; right: 10px; padding: 10px 14px; }
     }
@@ -264,9 +280,10 @@
   <header>DailyPulse</header>
 
   <nav>
-    <a href="#news">News</a>
-    <a href="#sports">Sports</a>
-    <a href="#contact">Contact</a>
+    <a href="#home">🏠 Home</a>
+    <a href="#news">📰 News</a>
+    <a href="#sports">⚽ Sports</a>
+    <a href="#contact">📞 Contact</a>
   </nav>
 
   <!-- Search Bar -->
@@ -277,16 +294,55 @@
   <!-- News Ticker -->
   <div id="news-ticker">
     <div id="ticker-content">
-      📰 Breaking: Markets up 2% | ⚽ Messi scores winner | 🌤️ Weather: Sunny 72°F | 🔴 Live: Election coverage | 💰 Bitcoin +5% | 🏈 NFL playoffs begin | 📈 Tech stocks rally
+      📰 Breaking: Markets up 2% | ⚽ Messi scores winner | 🌤️ Weather: Sunny 72°F | 🔴 Live: Election coverage | 💰 Bitcoin +5% | 🏈 NFL playoffs begin | 📈 Tech stocks rally | 🏀 NBA All-Star voting
     </div>
   </div>
 
-  <div class="hero">
-    <h1>Fast. Reliable. Daily.</h1>
-    <p>Your trusted source for news and sports highlights</p>
-    <a href="#news" class="button">Explore Updates</a>
-  </div>
+  <!-- HOME PAGE -->
+  <section id="home">
+    <div class="featured-image">
+      <div>
+        <h1>DailyPulse</h1>
+        <p>Your #1 source for breaking news & sports</p>
+        <a href="#news" class="homepage-button">Latest Updates →</a>
+      </div>
+    </div>
+    
+    <h2>🔥 Featured Today</h2>
+    <div class="cards">
+      <div class="card" style="background: linear-gradient(135deg, #2563eb, #1d4ed8); color: white;">
+        <h3 style="color: white;">🚨 TOP STORY</h3>
+        <p style="color: #e0e7ff;">Breaking news that everyone is talking about right now</p>
+        <div class="social-share">
+          <a href="#" title="Facebook">📘</a>
+          <a href="#" title="Twitter">🐦</a>
+          <a href="#" title="Instagram">📷</a>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1620712943543-8bb048832687?auto=format&fit=crop&w=800&q=80">
+        <h3>📈 Markets Live</h3>
+        <p>S&P 500 +1.2% | Nasdaq hits record high</p>
+        <div class="social-share">
+          <a href="#" title="Facebook">📘</a>
+          <a href="#" title="Twitter">🐦</a>
+          <a href="#" title="Instagram">📷</a>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1521412644187-c49fa049e84d?auto=format&fit=crop&w=800&q=80">
+        <h3>⚽ Premier League</h3>
+        <p>Man City vs Arsenal: Preview & predictions</p>
+        <div class="social-share">
+          <a href="#" title="Facebook">📘</a>
+          <a href="#" title="Twitter">🐦</a>
+          <a href="#" title="Instagram">📷</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <!-- NEWS SECTION -->
   <section id="news">
     <h2>Latest News</h2>
     <div class="cards">
@@ -316,6 +372,7 @@
     <div class="ad-slot">Advertisement — Google AdSense / Media.net</div>
   </section>
 
+  <!-- SPORTS SECTION -->
   <section id="sports">
     <h2>Sports Highlights</h2>
     <div class="cards">
@@ -346,7 +403,7 @@
   </section>
 
   <footer id="contact">
-    © 2025 DailyPulse · All rights reserved
+    © 2025 DailyPulse · All rights reserved | <a href="#">Privacy</a> | <a href="#">Terms</a>
   </footer>
 
   <script>
@@ -366,7 +423,17 @@
       document.getElementById('darkMode').textContent = isDark ? '☀️' : '🌙';
     });
 
-    // 3. Live News API (Demo)
+    // 3. Smooth Scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    // 4. Live News API (Demo)
     fetch('https://newsapi.org/v2/top-headlines?country=us&apiKey=demo')
       .then(r => r.json())
       .then(data => {
@@ -377,7 +444,6 @@
         }
       })
       .catch(() => {
-        // Fallback if API fails
         document.getElementById('live-news').querySelector('h3').textContent = 'Live News Feed Active';
       });
   </script>
