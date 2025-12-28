@@ -15,7 +15,7 @@ const articles = {
     ]
 };
 
-// Function to display articles in a section
+// Function to display articles in a section with share button
 function loadArticles() {
     Object.keys(articles).forEach(category => {
         const ul = document.getElementById(`${category}-articles`);
@@ -26,6 +26,15 @@ function loadArticles() {
             a.href = article.url;
             a.textContent = article.title;
             li.appendChild(a);
+
+            // Social Share button
+            const shareBtn = document.createElement("a");
+            shareBtn.href = `https://api.whatsapp.com/send?text=${encodeURIComponent(article.title + " " + article.url)}`;
+            shareBtn.textContent = " 🔗 Share";
+            shareBtn.target = "_blank";
+            shareBtn.style.marginLeft = "10px";
+            li.appendChild(shareBtn);
+
             ul.appendChild(li);
         });
     });
