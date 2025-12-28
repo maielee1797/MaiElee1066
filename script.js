@@ -1,36 +1,9 @@
 // Sample article data
 const articles = {
-        async function fetchNews() {
-    const apiKey = '8b74c49bbbbd47039e4e9222bfd69ef7'; // Replace with your real API key
-    const categories = ['general', 'sports', 'entertainment'];
-
-    for (let category of categories) {
-        const response = await fetch(`https://gnews.io/api/v4/top-headlines?category=${category}&lang=en&max=5&token=${apiKey}`);
-        const data = await response.json();
-
-        const container = document.getElementById(`${category === 'general' ? 'latest' : category}-articles`);
-        container.innerHTML = ''; // clear previous
-
-        data.articles.forEach(article => {
-            container.innerHTML += `
-                <article class="article-card">
-                    <img src="${article.image || 'https://via.placeholder.com/400x200'}" alt="${article.title}" class="article-image">
-                    <div class="article-content">
-                        <h4 class="article-title">${article.title}</h4>
-                        <p class="article-excerpt">${article.description || ''}</p>
-                        <div class="article-meta">
-                            <span>🌐 Source: ${article.source.name}</span>
-                            <span>${new Date(article.publishedAt).toLocaleTimeString()}</span>
-                        </div>
-                    </div>
-                </article>
-            `;
-        });
-    }
-}
-
-// Call fetchNews on load
-fetchNews();
+    latest: [
+        { title: "Breaking: Major World Event Unfolds", excerpt: "Lorem ipsum dolor sit amet...", image: "https://via.placeholder.com/400x200/1e3a8a/ffffff?text=Breaking" },
+        { title: "Technology Revolution Hits", excerpt: "Consectetur adipiscing elit...", image: "https://via.placeholder.com/400x200/059669/ffffff?text=Tech" },
+        { title: "Economy News You Need", excerpt: "Sed do eiusmod tempor incididunt...", image: "https://via.placeholder.com/400x200/f59e0b/000000?text=Economy" }
     ],
     sports: [
         { title: "Epic Championship Match", excerpt: "Sports world in shock...", image: "https://via.placeholder.com/400x200/ef4444/ffffff?text=Sports" },
