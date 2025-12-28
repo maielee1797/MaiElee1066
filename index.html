@@ -345,30 +345,9 @@
   <!-- NEWS SECTION -->
   <section id="news">
     <h2>Latest News</h2>
-    <div class="cards">
-      <div class="card" id="live-news">
-        <img src="https://images.unsplash.com/photo-1557683316-973673baf926?auto=format&fit=crop&w=800&q=80">
-        <h3>Breaking News Headline</h3>
-        <p>Clear, readable summary of the latest breaking news story.</p>
-        <div class="social-share">
-          <a href="#" title="Facebook">📘</a>
-          <a href="#" title="Twitter">🐦</a>
-          <a href="#" title="Instagram">📷</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1581091215367-0a9c2e5216c0?auto=format&fit=crop&w=800&q=80">
-        <h3>Politics & Economy</h3>
-        <p>Key political and economic developments you should know.</p>
-        <div class="social-share">
-          <a href="#" title="Facebook">📘</a>
-          <a href="#" title="Twitter">🐦</a>
-          <a href="#" title="Instagram">📷</a>
-        </div>
-      </div>
+    <div class="cards" id="news-container">
+      <!-- Live news will appear here -->
     </div>
-
     <div class="ad-slot">Advertisement — Google AdSense / Media.net</div>
   </section>
 
@@ -433,18 +412,24 @@
       });
     });
 
-    // 4. Live News API (Demo)
-    fetch('https://newsapi.org/v2/top-headlines?country=us&apiKey=demo')
-      .then(r => r.json())
+    // 4. Live News API (Your key applied)
+    const newsContainer = document.getElementById('news-container');
+    fetch('https://newsapi.org/v2/top-headlines?country=us&pageSize=5&apiKey=8b74c49bbbbd47039e4e9222bfd69ef7')
+      .then(response => response.json())
       .then(data => {
-        const card = document.getElementById('live-news');
-        if (data.articles && data.articles[0]) {
-          card.querySelector('h3').textContent = data.articles[0].title || 'Latest News';
-          card.querySelector('p').textContent = data.articles[0].description || 'Read full story...';
-        }
+        data.articles.forEach(article => {
+          const card = document.createElement('div');
+          card.className = 'card';
+          card.innerHTML = `
+            <img src="${article.urlToImage || 'https://via.placeholder.com/400'}" alt="News Image">
+            <h3><a href="${article.url}" target="_blank">${article.title}</a></h3>
+            <p>${article.description || ''}</p>
+          `;
+          newsContainer.appendChild(card);
+        });
       })
       .catch(() => {
-        document.getElementById('live-news').querySelector('h3').textContent = 'Live News Feed Active';
+        newsContainer.innerHTML = '<div class="card"><h3>Live News Feed Not Available</h3></div>';
       });
   </script>
 </body>
