@@ -1,6 +1,5 @@
 // Sample article data
 const articles = {
-    latest: [
         async function fetchNews() {
     const apiKey = '8b74c49bbbbd47039e4e9222bfd69ef7'; // Replace with your real API key
     const categories = ['general', 'sports', 'entertainment'];
