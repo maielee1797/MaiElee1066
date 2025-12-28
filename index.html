@@ -1,37 +1,239 @@
-<header style="background:#111827;color:#ffffff;padding:20px;text-align:center;">
-  <h1>DailyPulse</h1>
-  <p>Your daily source for news & sports highlights</p>
-</header>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DailyPulse</title>
 
-<main style="padding:20px;max-width:1000px;margin:auto;">
+  <meta name="description" content="DailyPulse delivers fast, reliable news and sports highlights with a modern, mobile-friendly experience.">
 
-  <section class="card">
-    <h2>📰 Latest News</h2>
-    <p>Stay informed with the latest headlines from around the world.</p>
-    <ul>
-      <li>Breaking: Major event happening now</li>
-      <li>Politics: What you need to know today</li>
-      <li>Economy: Market updates and insights</li>
-    </ul>
+  <style>
+    /* ===== Base / Global ===== */
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f6f8;
+      color: #1f2933;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ===== Header ===== */
+    header {
+      background-color: #0f172a;
+      color: #ffffff;
+      padding: 22px 0;
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    /* ===== Navigation ===== */
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #111827;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      padding: 14px 22px;
+      color: #e5e7eb;
+      font-weight: 600;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    nav a:hover {
+      background-color: #2563eb;
+      color: #ffffff;
+    }
+
+    /* ===== Hero ===== */
+    .hero {
+      background: linear-gradient(
+        rgba(15, 23, 42, 0.75),
+        rgba(15, 23, 42, 0.75)
+      ),
+      url('https://images.unsplash.com/photo-1508796079212-d5a1bbad6e6b?auto=format&fit=crop&w=1400&q=80')
+      no-repeat center / cover;
+      color: #ffffff;
+      text-align: center;
+      padding: 90px 20px;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      color: #e5e7eb;
+      margin-bottom: 25px;
+    }
+
+    .hero .button {
+      background-color: #2563eb;
+      padding: 14px 30px;
+      border-radius: 10px;
+      color: #ffffff;
+      font-weight: 700;
+      transition: background-color 0.3s, transform 0.3s;
+      display: inline-block;
+    }
+
+    .hero .button:hover {
+      background-color: #1d4ed8;
+      transform: scale(1.05);
+    }
+
+    /* ===== Sections ===== */
+    section {
+      max-width: 1200px;
+      margin: 50px auto;
+      padding: 0 20px;
+    }
+
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 25px;
+      text-align: center;
+      color: #0f172a;
+    }
+
+    /* ===== Cards ===== */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 22px;
+    }
+
+    .card {
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 14px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 12px;
+    }
+
+    .card h3 {
+      margin: 8px 0;
+      color: #2563eb;
+      font-size: 1.2rem;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: #374151;
+    }
+
+    /* ===== Ads ===== */
+    .ad-slot {
+      background-color: #e5e7eb;
+      color: #374151;
+      text-align: center;
+      padding: 25px;
+      margin: 30px 0;
+      border-radius: 14px;
+      font-weight: 600;
+    }
+
+    /* ===== Footer ===== */
+    footer {
+      background-color: #0f172a;
+      color: #cbd5e1;
+      text-align: center;
+      padding: 25px 15px;
+      margin-top: 50px;
+      font-size: 0.9rem;
+    }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      nav a {
+        padding: 12px 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>DailyPulse</header>
+
+  <nav>
+    <a href="#news">News</a>
+    <a href="#sports">Sports</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <div class="hero">
+    <h1>Fast. Reliable. Daily.</h1>
+    <p>Your trusted source for news and sports highlights</p>
+    <a href="#news" class="button">Explore Updates</a>
+  </div>
+
+  <section id="news">
+    <h2>Latest News</h2>
+    <div class="cards">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1557683316-973673baf926?auto=format&fit=crop&w=800&q=80">
+        <h3>Breaking News Headline</h3>
+        <p>Clear, readable summary of the latest breaking news story.</p>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1581091215367-0a9c2e5216c0?auto=format&fit=crop&w=800&q=80">
+        <h3>Politics & Economy</h3>
+        <p>Key political and economic developments you should know.</p>
+      </div>
+    </div>
+
+    <div class="ad-slot">Advertisement — Google AdSense / Media.net</div>
   </section>
 
-  <section class="card">
-    <h2>⚽ Sports Highlights</h2>
-    <p>Top matches, scores, and sports updates.</p>
-    <ul>
-      <li>Football: Big win last night</li>
-      <li>Basketball: Playoff drama continues</li>
-      <li>Local sports highlights</li>
-    </ul>
+  <section id="sports">
+    <h2>Sports Highlights</h2>
+    <div class="cards">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1521412644187-c49fa049e84d?auto=format&fit=crop&w=800&q=80">
+        <h3>Football Highlights</h3>
+        <p>Goals, match analysis, and league updates.</p>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1531058020387-3be344556be6?auto=format&fit=crop&w=800&q=80">
+        <h3>Basketball Highlights</h3>
+        <p>Top performances and game-changing moments.</p>
+      </div>
+    </div>
+
+    <div class="ad-slot">Advertisement — Google AdSense / Media.net</div>
   </section>
 
-  <section class="card">
-    <h2>📢 Advertisement</h2>
-    <p>Ad space – Google AdSense / Media.net</p>
-  </section>
+  <footer id="contact">
+    © 2025 DailyPulse · All rights reserved
+  </footer>
 
-</main>
-
-<footer>
-  <p>© 2025 DailyPulse. All rights reserved.</p>
-</footer>
+</body>
+</html>
