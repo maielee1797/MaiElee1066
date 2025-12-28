@@ -1,3 +1,4 @@
+
 /* Basic Reset */
 * {
     margin: 0;
@@ -40,6 +41,31 @@ section {
     background-color: #fff;
     border-radius: 8px;
 }
+/* Category Sections */
+section h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #3498db;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+/* Article lists */
+ul li {
+    margin-bottom: 10px;
+}
+
+/* Ad placeholders */
+.ad {
+    background-color: #eee;
+    color: #888;
+    border: 2px dashed #ccc;
+    text-align: center;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+}
+
 
 /* Latest Articles List */
 ul {
