@@ -1,4 +1,16 @@
-// Sample article data
+/* ========================================
+   UG16volt – Script.js (Improved Version)
+   Features: 
+   - Dynamic Articles
+   - Hero Slider
+   - Nav Scroll
+   - Intersection Observer Animations
+   - Theme Toggle (Dark / Light)
+=========================================== */
+
+// --------------------
+// 1. ARTICLE DATA
+// --------------------
 const articles = {
     latest: [
         { title: "Breaking: Major World Event Unfolds", excerpt: "Lorem ipsum dolor sit amet...", image: "https://via.placeholder.com/400x200/1e3a8a/ffffff?text=Breaking" },
@@ -15,7 +27,9 @@ const articles = {
     ]
 };
 
-// Populate articles
+// --------------------
+// 2. POPULATE ARTICLES
+// --------------------
 function populateArticles() {
     Object.keys(articles).forEach(category => {
         const container = document.getElementById(`${category}-articles`);
@@ -37,43 +51,43 @@ function populateArticles() {
     });
 }
 
-// Slider functionality
+// --------------------
+// 3. HERO SLIDER
+// --------------------
 let currentSlide = 0;
 const slides = document.querySelectorAll('.slide');
 const dots = document.querySelectorAll('.dot');
 
 function showSlide(index) {
-    slides.forEach((slide, i) => {
-        slide.classList.toggle('active', i === index);
-    });
-    dots.forEach((dot, i) => {
-        dot.classList.toggle('active', i === index);
-    });
+    slides.forEach((slide, i) => slide.classList.toggle('active', i === index));
+    dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
     currentSlide = index;
 }
 
-dots.forEach((dot, index) => {
-    dot.addEventListener('click', () => showSlide(index));
-});
+dots.forEach((dot, index) => dot.addEventListener('click', () => showSlide(index)));
 
 setInterval(() => {
     currentSlide = (currentSlide + 1) % slides.length;
     showSlide(currentSlide);
 }, 5000);
 
-// Nav active state
+// --------------------
+// 4. NAV ACTIVE STATE
+// --------------------
 document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', function(e) {
         e.preventDefault();
         document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
         this.classList.add('active');
-        
+
         const targetId = this.getAttribute('href').substring(1);
         document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth' });
     });
 });
 
-// Intersection Observer for animations
+// --------------------
+// 5. INTERSECTION OBSERVER (SECTION ANIMATION)
+// --------------------
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -81,9 +95,30 @@ const observer = new IntersectionObserver((entries) => {
         }
     });
 });
-
 document.querySelectorAll('.section').forEach(section => observer.observe(section));
 
-// Initialize
+// --------------------
+// 6. THEME TOGGLE (DARK / LIGHT)
+// --------------------
+const themeToggle = document.getElementById("themeToggle");
+
+function setTheme(theme) {
+    document.body.classList.toggle("light", theme === "light");
+    localStorage.setItem("theme", theme);
+    themeToggle.textContent = theme === "light" ? "🌙" : "☀️";
+}
+
+// Load saved theme
+const savedTheme = localStorage.getItem("theme") || "dark";
+setTheme(savedTheme);
+
+themeToggle.addEventListener("click", () => {
+    const currentTheme = document.body.classList.contains("light") ? "light" : "dark";
+    setTheme(currentTheme === "light" ? "dark" : "light");
+});
+
+// --------------------
+// 7. INITIALIZE SITE
+// --------------------
 populateArticles();
 showSlide(0);
