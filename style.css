@@ -40,7 +40,7 @@ header nav a:hover {
 }
 
 /* ---------------- Hero Section ---------------- */
-section:first-of-type {
+#hero {
     background: #ffe6e6;
     padding: 40px 20px;
     border-radius: 10px;
@@ -48,13 +48,13 @@ section:first-of-type {
     margin: 20px;
 }
 
-section:first-of-type h2 {
+#hero h2 {
     font-size: 32px;
     color: #ff416c;
     margin-bottom: 10px;
 }
 
-section:first-of-type p {
+#hero p {
     font-size: 18px;
     color: #333;
 }
