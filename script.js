@@ -1,6 +1,5 @@
-// LIVE NEWS API - POPULATES ENTIRE NEWS SECTION
 async function loadLiveNews() {
-  const apiKey = 'YOUR_API_KEY_HERE'; // ← PASTE YOUR KEY HERE
+  const apiKey = '8b74c49bbbbd47039e4e9222bfd69ef7';
   const newsCards = document.getElementById('news-cards');
   const loading = document.getElementById('news-loading');
   
