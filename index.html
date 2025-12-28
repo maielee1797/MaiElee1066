@@ -1,135 +1,140 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UG16volt - Trending News & Entertainment</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Enhanced Header with Glass Effect -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <h1>UG16volt</h1>
+                <span class="tagline">Trending News & Entertainment</span>
+            </div>
+            <nav class="nav">
+                <a href="#latest" class="nav-link active">Home</a>
+                <a href="#sports" class="nav-link">Sports</a>
+                <a href="#entertainment" class="nav-link">Entertainment</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+        </div>
+    </header>
 
-body {
-    font-family: 'Arial', sans-serif;
-    line-height: 1.6;
-    color: #333;
-}
+    <!-- Hero Section with Pro Slider -->
+    <section id="hero" class="hero">
+        <div class="hero-overlay">
+            <h2 class="hero-title">Top Trending Stories</h2>
+            <div class="slider-container">
+                <div class="slider">
+                    <div class="slide active">
+                        <img src="https://via.placeholder.com/1200x600/1e3a8a/ffffff?text=Breaking+News+1" alt="Trending 1">
+                        <div class="slide-content">
+                            <p class="slide-title">Trending Story 1 - Breaking News Headline</p>
+                            <span class="slide-time">2 hours ago</span>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <img src="https://via.placeholder.com/1200x600/ff6b6b/ffffff?text=Trending+Story+2" alt="Trending 2">
+                        <div class="slide-content">
+                            <p class="slide-title">Trending Story 2 - Major Entertainment Scoop</p>
+                            <span class="slide-time">4 hours ago</span>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <img src="https://via.placeholder.com/1200x600/10b981/ffffff?text=Sports+Update+3" alt="Trending 3">
+                        <div class="slide-content">
+                            <p class="slide-title">Trending Story 3 - Sports World Shocker</p>
+                            <span class="slide-time">6 hours ago</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="slider-dots">
+                    <span class="dot active" data-slide="0"></span>
+                    <span class="dot" data-slide="1"></span>
+                    <span class="dot" data-slide="2"></span>
+                </div>
+            </div>
+        </div>
+    </section>
 
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 5%;
-    background: #fff;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-}
+    <!-- Main Content & Enhanced Sidebar -->
+    <div class="main-container">
+        <main class="content">
+            <!-- Latest Articles -->
+            <section id="latest" class="section">
+                <h3 class="section-title">Latest Articles</h3>
+                <div class="articles-grid" id="latest-articles">
+                    <!-- Dynamic content populated by JS -->
+                </div>
+            </section>
+            <div class="ad-space">Ad Space - Google AdSense</div>
 
-.nav-brand { font-size: 1.5rem; font-weight: bold; color: #007bff; }
+            <!-- Sports Section -->
+            <section id="sports" class="section">
+                <h3 class="section-title">Sports</h3>
+                <div class="articles-grid" id="sports-articles">
+                    <!-- Dynamic content populated by JS -->
+                </div>
+            </section>
+            <div class="ad-space">Ad Space - Google AdSense</div>
 
-.nav-menu {
-    display: flex;
-    list-style: none;
-    gap: 2rem;
-}
+            <!-- Entertainment Section -->
+            <section id="entertainment" class="section">
+                <h3 class="section-title">Entertainment</h3>
+                <div class="articles-grid" id="entertainment-articles">
+                    <!-- Dynamic content populated by JS -->
+                </div>
+            </section>
+            <div class="ad-space">Ad Space - Google AdSense</div>
 
-.nav-menu a { text-decoration: none; color: #333; font-weight: 500; }
+            <!-- Contact Section -->
+            <section id="contact" class="section">
+                <h3 class="section-title">Contact Us</h3>
+                <div class="contact-info">
+                    <p><strong>Email:</strong> info@ug16volt.com</p>
+                    <p><strong>Follow us:</strong> Twitter | Instagram | YouTube</p>
+                </div>
+            </section>
+        </main>
 
-.hamburger {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-}
+        <!-- Premium Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-section">
+                <h4>Popular Posts</h4>
+                <ul class="popular-list">
+                    <li><a href="#">Popular Article 1<span>· 12k views</span></a></li>
+                    <li><a href="#">Popular Article 2<span>· 8.5k views</span></a></li>
+                    <li><a href="#">Popular Article 3<span>· 6.2k views</span></a></li>
+                </ul>
+            </div>
+            <div class="sidebar-trending">
+                <h4>Trending Now</h4>
+                <div class="trending-item">
+                    <span class="trend-rank">#1</span>
+                    <span>Entertainment Buzz</span>
+                </div>
+                <div class="trending-item">
+                    <span class="trend-rank">#2</span>
+                    <span>Sports Drama</span>
+                </div>
+            </div>
+            <div class="ad-space sidebar-ad">Ad Space</div>
+        </aside>
+    </div>
 
-.hamburger span {
-    width: 25px;
-    height: 3px;
-    background: #333;
-    margin: 3px 0;
-    transition: 0.3s;
-}
+    <!-- Premium Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 UG16volt. All rights reserved. | Privacy Policy | Terms of Service</p>
+        </div>
+    </footer>
 
-.hero {
-    height: 100vh;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: white;
-}
-
-.hero-content h1 { font-size: 3rem; margin-bottom: 1rem; }
-
-.cta-btn {
-    background: #ff6b6b;
-    color: white;
-    border: none;
-    padding: 1rem 2rem;
-    font-size: 1.1rem;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: transform 0.3s;
-}
-
-.cta-btn:hover { transform: scale(1.05); }
-
-.section {
-    padding: 5rem 5%;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-.card {
-    background: #f8f9fa;
-    padding: 2rem;
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-
-form {
-    max-width: 500px;
-    margin: 2rem auto;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-input, textarea {
-    padding: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 1rem;
-}
-
-footer {
-    background: #333;
-    color: white;
-    text-align: center;
-    padding: 2rem;
-}
-
-/* Mobile responsiveness */
-@media (max-width: 768px) {
-    .hamburger { display: flex; }
-    .nav-menu {
-        position: fixed;
-        left: -100%;
-        top: 70px;
-        flex-direction: column;
-        background: white;
-        width: 100%;
-        text-align: center;
-        transition: 0.3s;
-        box-shadow: 0 10px 27px rgba(0,0,0,0.05);
-        padding: 2rem 0;
-    }
-    .nav-menu.active { left: 0; }
-    .hero-content h1 { font-size: 2rem; }
-}
+    <script src="script.js"></script>
+</body>
+</html>
