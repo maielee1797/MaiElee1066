@@ -1,7 +1,7 @@
 // Sample article data
 const articles = {
     latest: [
-        { title: "Breaking: Major World Event Unfolds", excerpt: "Lorem ipsum dolor sit amet...", image: "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=8b74c49bbbbd47039e4e9222bfd69ef7" },
+        { title: "Breaking: Major World Event Unfolds", excerpt: "Lorem ipsum dolor sit amet...",: "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=8b74c49bbbbd47039e4e9222bfd69ef7" },
         { title: "Technology Revolution Hits", excerpt: "Consectetur adipiscing elit...", image: "https://via.placeholder.com/400x200/059669/ffffff?text=Tech" },
         { title: "Economy News You Need", excerpt: "Sed do eiusmod tempor incididunt...", image: "https://via.placeholder.com/400x200/f59e0b/000000?text=Economy" }
     ],
