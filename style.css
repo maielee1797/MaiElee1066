@@ -1,24 +1,120 @@
-/* Category Sections */
+/* ---------------- Basic Reset ---------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ---------------- Body ---------------- */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* ---------------- Header ---------------- */
+header {
+    background: linear-gradient(90deg, #ff4b2b, #ff416c);
+    color: #fff;
+    padding: 25px 0;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+header h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+header nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+header nav a:hover {
+    color: #ffd700; /* gold highlight */
+}
+
+/* ---------------- Hero Section ---------------- */
+section:first-of-type {
+    background: #ffe6e6;
+    padding: 40px 20px;
+    border-radius: 10px;
+    text-align: center;
+    margin: 20px;
+}
+
+section:first-of-type h2 {
+    font-size: 32px;
+    color: #ff416c;
+    margin-bottom: 10px;
+}
+
+section:first-of-type p {
+    font-size: 18px;
+    color: #333;
+}
+
+/* ---------------- Category Sections ---------------- */
+section {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+}
+
+/* Category Headings */
 section h3 {
     color: #2c3e50;
     margin-bottom: 15px;
-    border-bottom: 2px solid #3498db;
+    border-bottom: 2px solid #ff416c;
     display: inline-block;
     padding-bottom: 5px;
 }
 
-/* Article lists */
-ul li {
-    margin-bottom: 10px;
+/* ---------------- Articles ---------------- */
+ul {
+    list-style: none;
 }
 
-/* Ad placeholders */
+ul li a {
+    display: block;
+    padding: 12px 15px;
+    background-color: #f9f9f9;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    color: #3498db;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+ul li a:hover {
+    background-color: #ffebeb;
+    color: #ff416c;
+}
+
+/* ---------------- Ad Placeholders ---------------- */
 .ad {
-    background-color: #eee;
-    color: #888;
-    border: 2px dashed #ccc;
+    background-color: #fff0f0;
+    color: #ff416c;
+    border: 2px dashed #ffb3b3;
     text-align: center;
     padding: 20px;
     margin: 20px 0;
     border-radius: 8px;
+    font-weight: bold;
+}
+
+/* ---------------- Footer ---------------- */
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #222;
+    color: #fff;
+    margin-top: 20px;
 }
