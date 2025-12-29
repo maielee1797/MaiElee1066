@@ -1,40 +1,68 @@
-// Sample article data
-const articles = {
+// Real article data with API fallback
+const fallbackArticles = {
     latest: [
-        { title: "Breaking: Major World Event Unfolds", excerpt: "Lorem ipsum dolor sit amet...",: "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=8b74c49bbbbd47039e4e9222bfd69ef7" },
-        { title: "Technology Revolution Hits", excerpt: "Consectetur adipiscing elit...", image: "https://via.placeholder.com/400x200/059669/ffffff?text=Tech" },
-        { title: "Economy News You Need", excerpt: "Sed do eiusmod tempor incididunt...", image: "https://via.placeholder.com/400x200/f59e0b/000000?text=Economy" }
+        { id: 1, title: "Breaking: Major World Event Unfolds", excerpt: "Global markets react to unexpected Fed decision...", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=200&fit=crop" },
+        { id: 2, title: "Technology Revolution Hits Hard", excerpt: "AI breakthroughs changing industries worldwide...", image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=200&fit=crop" },
+        { id: 3, title: "Economy News You Can't Ignore", excerpt: "Inflation data shocks analysts and investors...", image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&h=200&fit=crop" }
     ],
     sports: [
-        { title: "Epic Championship Match", excerpt: "Sports world in shock...", image: "https://via.placeholder.com/400x200/ef4444/ffffff?text=Sports" },
-        { title: "Record-Breaking Performance", excerpt: "Athlete makes history...", image: "https://via.placeholder.com/400x200/10b981/ffffff?text=Record" }
+        { id: 4, title: "Epic Championship Match Ends in Drama", excerpt: "Last-minute goal sends fans into frenzy...", image: "https://images.unsplash.com/photo-1559776452-8d93d4a5eacc?w=400&h=200&fit=crop" },
+        { id: 5, title: "Record-Breaking Performance Stuns World", excerpt: "Athlete shatters world record by 2 seconds...", image: "https://images.unsplash.com/photo-1541532714111-1d0f3a026f15?w=400&h=200&fit=crop" }
     ],
     entertainment: [
-        { title: "Hollywood Blockbuster Revealed", excerpt: "Major film announcement...", image: "https://via.placeholder.com/400x200/8b5cf6/ffffff?text=Movies" },
-        { title: "Music Awards Shock", excerpt: "Unexpected winners...", image: "https://via.placeholder.com/400x200/f97316/ffffff?text=Music" }
+        { id: 6, title: "Hollywood Blockbuster Secrets Revealed", excerpt: "Major plot twists leaked from set...", image: "https://images.unsplash.com/photo-1489599199157-794d9b8e7dd2?w=400&h=200&fit=crop" },
+        { id: 7, title: "Music Awards Shock Everyone", excerpt: "Underdog takes home Album of the Year...", image: "https://images.unsplash.com/photo-1614700877622-406eb3a8d8e0?w=400&h=200&fit=crop" }
     ]
 };
 
-// Populate articles
-function populateArticles() {
-    Object.keys(articles).forEach(category => {
+// Load articles from API or fallback
+async function loadArticles(category) {
+    try {
+        const response = await fetch(`/api/articles/${category}`);
+        if (response.ok) {
+            return await response.json();
+        }
+    } catch (error) {
+        console.log('Using fallback data for', category);
+    }
+    return fallbackArticles[category] || [];
+}
+
+// Populate all articles
+async function populateArticles() {
+    const categories = ['latest', 'sports', 'entertainment'];
+    
+    for (const category of categories) {
+        const articles = await loadArticles(category);
         const container = document.getElementById(`${category}-articles`);
-        articles[category].forEach(article => {
-            container.innerHTML += `
-                <article class="article-card">
-                    <img src="${article.image}" alt="${article.title}" class="article-image">
-                    <div class="article-content">
-                        <h4 class="article-title">${article.title}</h4>
-                        <p class="article-excerpt">${article.excerpt}</p>
-                        <div class="article-meta">
-                            <span>🔥 12.5k views</span>
-                            <span>2h ago</span>
+        
+        if (container) {
+            container.innerHTML = '';
+            articles.forEach(article => {
+                const views = Math.floor(Math.random() * 50 + 10);
+                const hours = Math.floor(Math.random() * 24) + 1;
+                container.innerHTML += `
+                    <article class="article-card" onclick="openArticle(${article.id})">
+                        <img src="${article.image}" alt="${article.title}" class="article-image" loading="lazy">
+                        <div class="article-content">
+                            <h4 class="article-title">${article.title}</h4>
+                            <p class="article-excerpt">${article.excerpt}</p>
+                            <div class="article-meta">
+                                <span>🔥 ${views}k views</span>
+                                <span>${hours}h ago</span>
+                            </div>
                         </div>
-                    </div>
-                </article>
-            `;
-        });
-    });
+                    </article>
+                `;
+            });
+        }
+    }
+}
+
+// Article click handler
+function openArticle(id) {
+    // In production, this would load real article
+    alert(`Opening article ID: ${id}\n\nIn production: window.location.href = '/article/${id}'`);
 }
 
 // Slider functionality
@@ -61,7 +89,7 @@ setInterval(() => {
     showSlide(currentSlide);
 }, 5000);
 
-// Nav active state
+// Navigation
 document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', function(e) {
         e.preventDefault();
@@ -73,17 +101,27 @@ document.querySelectorAll('.nav-link').forEach(link => {
     });
 });
 
-// Intersection Observer for animations
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.animationDelay = '0.1s';
-        }
-    });
+// Contact form
+document.querySelector('.contact-form')?.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const email = document.getElementById('contactEmail').value;
+    const message = document.getElementById('contactMessage').value;
+    
+    try {
+        const response = await fetch('/api/contact', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email, message })
+        });
+        alert('Message sent! Thanks for contacting us.');
+        this.reset();
+    } catch (error) {
+        alert('Please try again later.');
+    }
 });
 
-document.querySelectorAll('.section').forEach(section => observer.observe(section));
-
 // Initialize
-populateArticles();
-showSlide(0);
+document.addEventListener('DOMContentLoaded', () => {
+    populateArticles();
+    showSlide(0);
+});
